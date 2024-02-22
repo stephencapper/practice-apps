@@ -5,14 +5,15 @@ const Search = ({ setSearchTerm }) => {
   //some code
   const [term, setTerm] = useState('');
   const handleTerm = (e) => {
-    setTerm(e.target.value);
+    setTerm('' + e.target.value);
   };
   const handleSearchSubmit = () => {
-    setSearchTerm(setTerm);
+    setSearchTerm(term);
   };
 
   return (
     <>
+      <h3>Search words</h3>
       <input name="searchTerm" placeholder="Word" onChange={handleTerm}/>
       <button name="searchSumbit" onClick={handleSearchSubmit}>Search</button>
     </>

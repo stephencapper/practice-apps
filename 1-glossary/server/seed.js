@@ -15,5 +15,3 @@ const seed = () => {
     console.log('Data not seeded');
   });
 };
-
-module.exports = seed;
