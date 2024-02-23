@@ -1,0 +1,35 @@
+CREATE DATABASE checkout;
+
+USE checkout;
+
+CREATE TABLE users (
+  id VARCHAR(100) NOT NULL,
+  name VARCHAR(250) NOT NULL,
+  email VARCHAR(250) NOT NULL,
+  password VARCHAR(250) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE contacts (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id VARCHAR(100) NOT NULL,
+  line_1 VARCHAR(250) NOT NULL,
+  line_2 VARCHAR(250),
+  city VARCHAR(50) NOT NULL,
+  state VARCHAR(20) NOT NULL,
+  zip VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE cards (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id VARCHAR(100) NOT NULL,
+  card_num VARCHAR(30) NOT NULL,
+  exp_date CHAR(7) NOT NULL,
+  CVV VARCHAR(10) NOT NULL,
+  bill_zip VARCHAR(20) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
