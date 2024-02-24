@@ -33,3 +33,11 @@ CREATE TABLE cards (
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+CREATE TABLE purchases (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id VARCHAR(100) NOT NULL,
+  purchase VARCHAR(200),
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
